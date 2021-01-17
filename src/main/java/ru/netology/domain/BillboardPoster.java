@@ -2,25 +2,30 @@ package ru.netology.domain;
 
     public class BillboardPoster {
 
-        private int MovieId;
+        private int FilmId;
         private String FilmName;
         private String FilmGenre;
 
-
-        public int getMovieId() {
-            return MovieId;
+        public BillboardPoster(int filmId, String filmName, String filmGenre) {
+            FilmId = filmId;
+            FilmName = filmName;
+            FilmGenre = filmGenre;
         }
 
-        public void setMovieId(int movieId) {
-            MovieId = movieId;
+        public int getFilmId() {
+            return FilmId;
         }
 
-        public String getFilmId() {
+        public void setFilmId(int filmId) {
+            FilmId = filmId;
+        }
+
+        public String getFilmName() {
             return FilmName;
         }
 
-        public void setFilmId(String filmId) {
-            FilmName = filmId;
+        public void setFilmName(String filmName) {
+            FilmName = filmName;
         }
 
         public String getFilmGenre() {
@@ -30,12 +35,8 @@ package ru.netology.domain;
         public void setFilmGenre(String filmGenre) {
             FilmGenre = filmGenre;
         }
-
-        public BillboardPoster(int movieId, String filmName, String filmGenre) {
-            MovieId = movieId;
-            FilmName = filmName;
-            FilmGenre = filmGenre;
-        }
     }
+
+
 
 
