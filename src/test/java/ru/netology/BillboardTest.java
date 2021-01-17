@@ -6,17 +6,17 @@ import ru.netology.manager.PosterManager;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class BillboardTest {
-    BillboardPoster filmAdd1 = new BillboardPoster(1, "title1", "genre1");
-    BillboardPoster filmAdd2 = new BillboardPoster(2, "title2", "genre2");
-    BillboardPoster filmAdd3 = new BillboardPoster(3, "title3", "genre3");
-    BillboardPoster filmAdd4 = new BillboardPoster(4, "title4", "genre4");
-    BillboardPoster filmAdd5 = new BillboardPoster(5, "title5", "genre5");
-    BillboardPoster filmAdd6 = new BillboardPoster(6, "title6", "genre6");
-    BillboardPoster filmAdd7 = new BillboardPoster(7, "title7", "genre7");
-    BillboardPoster filmAdd8 = new BillboardPoster(8, "title8", "genre8");
-    BillboardPoster filmAdd9 = new BillboardPoster(9, "title9", "genre9");
-    BillboardPoster filmAdd10 = new BillboardPoster(10, "title10", "genre10");
-    BillboardPoster filmAdd11 = new BillboardPoster(11, "title11", "genre11");
+    BillboardPoster filmAdd1 = new BillboardPoster(1, "BloodShot", "thriller");
+    BillboardPoster filmAdd2 = new BillboardPoster(2, "forward", "cartoon");
+    BillboardPoster filmAdd3 = new BillboardPoster(3, "Hotel Belgrade", "comedy");
+    BillboardPoster filmAdd4 = new BillboardPoster(4, "gentlemen", "thriller");
+    BillboardPoster filmAdd5 = new BillboardPoster(5, "Invisible-man", "horror");
+    BillboardPoster filmAdd6 = new BillboardPoster(6, "trolls. world tour", "cartoon");
+    BillboardPoster filmAdd7 = new BillboardPoster(7, "number One", "comedy");
+    BillboardPoster filmAdd8 = new BillboardPoster(8, "Constantin", "horror");
+    BillboardPoster filmAdd9 = new BillboardPoster(9, "alone at home", "comedy");
+    BillboardPoster filmAdd10 = new BillboardPoster(10, "toughie", "thriller");
+    BillboardPoster filmAdd11 = new BillboardPoster(11, "Lord of the Rings", "fantasy");
 
 
     void setup(PosterManager manager) {
@@ -37,9 +37,9 @@ public class BillboardTest {
     public void shouldAddFilmsEqualManagerLength() {
         PosterManager manager = new PosterManager();
 
-        manager.addFilm(filmAdd10);
+        manager.addFilm(filmAdd9);
         BillboardPoster[] actual = manager.getAllFilms();
-        BillboardPoster[] expected = new BillboardPoster[]{filmAdd10};
+        BillboardPoster[] expected = new BillboardPoster[]{filmAdd9};
         assertArrayEquals(expected, actual);
     }
     @Test
@@ -67,15 +67,28 @@ public class BillboardTest {
     }
 
     @Test
-    public void shouldDefaultValue() {
+    public void shouldDefaultValueOverMax() {
 
         PosterManager manager = new PosterManager();
         setup(manager);
         manager.addFilm(filmAdd10);
         manager.addFilm(filmAdd11);
         BillboardPoster[] actual = manager.getAllFilms();
-        BillboardPoster[] expected = new BillboardPoster[]{filmAdd11, filmAdd10, filmAdd9,
+        BillboardPoster[] expected = new BillboardPoster[]{filmAdd11,filmAdd10, filmAdd9,
                 filmAdd8, filmAdd7, filmAdd6, filmAdd5, filmAdd4, filmAdd3, filmAdd2};
+
+        assertArrayEquals(expected, actual);
+
+    }
+    @Test
+    public void shouldDefaultValues() {
+
+        PosterManager manager = new PosterManager();
+        setup(manager);
+        manager.addFilm(filmAdd10);
+        BillboardPoster[] actual = manager.getAllFilms();
+        BillboardPoster[] expected = new BillboardPoster[]{filmAdd10, filmAdd9,
+                filmAdd8, filmAdd7, filmAdd6, filmAdd5, filmAdd4, filmAdd3, filmAdd2,filmAdd1};
 
         assertArrayEquals(expected, actual);
 
