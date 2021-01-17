@@ -35,16 +35,16 @@ public class BillboardTest {
     }
 
     @Test
-    public void shouldAddMoviesEqualManagerLength() {
+    public void shouldAddFilmsEqualManagerLength() {
         PosterManager manager = new PosterManager();
 
-        manager.addFilm(filmAdd1);
+        manager.addFilm(filmAdd10);
         BillboardPoster[] actual = manager.getAllFilms();
         BillboardPoster[] expected = new BillboardPoster[]{filmAdd10};
         assertArrayEquals(expected, actual);
     }
     @Test
-    public void shouldMoviesShowFromLastToFirst() {
+    public void shouldFilmsShowFromLastToFirst() {
         PosterManager manager = new PosterManager();
 
         setup(manager);
@@ -55,7 +55,7 @@ public class BillboardTest {
     }
 
     @Test
-    public void shouldShowMoviesWithLimit() {
+    public void shouldShowFilmsWithLimit() {
 
         PosterManager manager = new PosterManager(5);
         setup(manager);
@@ -83,7 +83,7 @@ public class BillboardTest {
     }
 
     @Test
-    public void shouldShowMoviesWithZeroNumber() {
+    public void shouldShowFilmsWithZeroNumber() {
         PosterManager manager = new PosterManager(0);
         setup(manager);
         BillboardPoster[] actual = manager.getAllFilms();
@@ -94,7 +94,7 @@ public class BillboardTest {
     }
 
     @Test
-    public void shouldShowMoviesWithNegativeNumber() {
+    public void shouldShowFilmsWithNegativeNumber() {
         PosterManager manager = new PosterManager(-1);
         setup(manager);
         BillboardPoster[] actual = manager.getAllFilms();
