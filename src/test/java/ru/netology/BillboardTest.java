@@ -1,5 +1,4 @@
 package ru.netology;
-
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.BillboardPoster;
 import ru.netology.manager.PosterManager;
