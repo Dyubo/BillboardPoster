@@ -1,4 +1,5 @@
 package ru.netology;
+
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.BillboardPoster;
 import ru.netology.manager.PosterManager;
@@ -33,6 +34,7 @@ public class BillboardTest {
 
     }
 
+ //   @BeforeEach
     @Test
     public void shouldAddFilmsEqualManagerLength() {
         PosterManager manager = new PosterManager();
@@ -42,13 +44,14 @@ public class BillboardTest {
         BillboardPoster[] expected = new BillboardPoster[]{filmAdd9};
         assertArrayEquals(expected, actual);
     }
+
     @Test
     public void shouldFilmsShowFromLastToFirst() {
         PosterManager manager = new PosterManager();
 
         setup(manager);
         BillboardPoster[] actual = manager.getAllFilms();
-        BillboardPoster[] expected = new BillboardPoster[]{filmAdd9,filmAdd8,filmAdd7,filmAdd6,filmAdd5,filmAdd4,filmAdd3,filmAdd2,filmAdd1};
+        BillboardPoster[] expected = new BillboardPoster[]{filmAdd9, filmAdd8, filmAdd7, filmAdd6, filmAdd5, filmAdd4, filmAdd3, filmAdd2, filmAdd1};
         assertArrayEquals(expected, actual);
 
     }
@@ -74,12 +77,13 @@ public class BillboardTest {
         manager.addFilm(filmAdd10);
         manager.addFilm(filmAdd11);
         BillboardPoster[] actual = manager.getAllFilms();
-        BillboardPoster[] expected = new BillboardPoster[]{filmAdd11,filmAdd10, filmAdd9,
+        BillboardPoster[] expected = new BillboardPoster[]{filmAdd11, filmAdd10, filmAdd9,
                 filmAdd8, filmAdd7, filmAdd6, filmAdd5, filmAdd4, filmAdd3, filmAdd2};
 
         assertArrayEquals(expected, actual);
 
     }
+
     @Test
     public void shouldDefaultValues() {
 
@@ -88,7 +92,7 @@ public class BillboardTest {
         manager.addFilm(filmAdd10);
         BillboardPoster[] actual = manager.getAllFilms();
         BillboardPoster[] expected = new BillboardPoster[]{filmAdd10, filmAdd9,
-                filmAdd8, filmAdd7, filmAdd6, filmAdd5, filmAdd4, filmAdd3, filmAdd2,filmAdd1};
+                filmAdd8, filmAdd7, filmAdd6, filmAdd5, filmAdd4, filmAdd3, filmAdd2, filmAdd1};
 
         assertArrayEquals(expected, actual);
 

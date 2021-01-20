@@ -6,21 +6,17 @@ public class PosterManager {
 
     private BillboardPoster[] posters = new BillboardPoster[0];
 
-    int defaultNumberFilmViewing = 10;
+    int limitFilmViewing = 10;
 
     public PosterManager(int number) {
 
-        if(number >= 0){
-            defaultNumberFilmViewing = number;
+        if (number >= 0) {
+            limitFilmViewing = number;
 
         }
-
-
     }
 
-
     public PosterManager() {
-
 
     }
 
@@ -30,9 +26,7 @@ public class PosterManager {
         int length = posters.length + 1;
         BillboardPoster[] tmp = new BillboardPoster[length];
 
-        for (int i = 0; i < posters.length; i++) {
-            tmp[i] = posters[i];
-        }
+        System.arraycopy(posters, 0, tmp, 0, posters.length);
 
         int lastIndex = tmp.length - 1;
         tmp[lastIndex] = poster;
@@ -42,14 +36,13 @@ public class PosterManager {
 
     public BillboardPoster[] getAllFilms() {
 
-        if( defaultNumberFilmViewing> posters.length) {
+        if (limitFilmViewing > posters.length) {
 
-             defaultNumberFilmViewing= posters.length;
+            limitFilmViewing = posters.length;
         }
 
 
-
-        BillboardPoster[] result = new BillboardPoster[defaultNumberFilmViewing];
+        BillboardPoster[] result = new BillboardPoster[limitFilmViewing];
 
         for (int i = 0; i < result.length; i++) {
             int index = posters.length - i - 1;
