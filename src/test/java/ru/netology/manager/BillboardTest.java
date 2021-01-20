@@ -1,8 +1,7 @@
-package ru.netology;
+package ru.netology.manager;
 
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.BillboardPoster;
-import ru.netology.manager.PosterManager;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
@@ -34,7 +33,6 @@ public class BillboardTest {
 
     }
 
- //   @BeforeEach
     @Test
     public void shouldAddFilmsEqualManagerLength() {
         PosterManager manager = new PosterManager();

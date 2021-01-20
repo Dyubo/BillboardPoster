@@ -26,7 +26,9 @@ public class PosterManager {
         int length = posters.length + 1;
         BillboardPoster[] tmp = new BillboardPoster[length];
 
-        System.arraycopy(posters, 0, tmp, 0, posters.length);
+        for (int i = 0; i < posters.length; i++) {
+            tmp[i] = posters[i];
+        }
 
         int lastIndex = tmp.length - 1;
         tmp[lastIndex] = poster;
@@ -35,14 +37,18 @@ public class PosterManager {
 
 
     public BillboardPoster[] getAllFilms() {
+        int lenght;
 
-        if (limitFilmViewing > posters.length) {
 
-            limitFilmViewing = posters.length;
+        if (limitFilmViewing <= posters.length) {
+
+            lenght = limitFilmViewing;
+        } else  {
+
+            lenght = posters.length;
         }
 
-
-        BillboardPoster[] result = new BillboardPoster[limitFilmViewing];
+        BillboardPoster[] result = new BillboardPoster[lenght];
 
         for (int i = 0; i < result.length; i++) {
             int index = posters.length - i - 1;
